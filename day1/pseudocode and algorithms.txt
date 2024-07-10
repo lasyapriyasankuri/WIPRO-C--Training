@@ -1,0 +1,87 @@
+1. sum of digits eg:456=4+5+6=15
+
+ALGORITHM:
+1.start
+2.prompt the user to enter a number 
+3.initialize sum to 0
+4.while the number is greater than 0
+5.get the last digit of the number(num%10)
+6.add the last digit to sum
+7.remove last digit from the number (number/10)
+8.print the sum
+9. end
+
+PSEUDOCODE:
+1.start
+2.declare int num=456
+3.declare result=0
+4.while(num is greater than 0)
+  declare int rem=num%10
+  add result=result+rem
+  remove lastdigit num=num/10
+5.print result
+6.stop
+
+(2) area of rectangle,square,circle
+
+ALGORITHM
+1.start
+2.for rectangle:
+  prompt the user to enter the length and width 
+  calculate the area as length+width
+  print the area
+3.for square:
+  prompt the user to enter the side length
+  calculate the area as side+side
+  print the area 
+4.for circle:
+  prompt the user to enter the radius
+  calculate the area as 3.14*radius*radius
+  print the area 
+5.end
+
+PSEUDOCODE:
+1.start
+2.declare shape
+3.if shape==rectangle
+  declare int length,width
+  declare int area=length*width
+  print area
+4.if shape=square
+  declare int side
+  declare int area=side*side
+  print area 
+5.if shape=circle
+  declare int radius 
+  declare int area=3.12*radius*radius
+  print area
+6.end
+
+(3) average of 5 marks from user if avg is btw 75-90 print excellent,60-75 print good, 
+45-60 print pass,below 45 print fail
+
+ALGORITHM:
+1.start
+2.declare variable mark1,mark2,mark3,mark4,mark5 and the values of each marks
+3.declare int average to store the average of 5 marks
+4.add all the marks and divide it by 5 to get the average 
+5.if average is 75-90 print excellent 
+  or average is 65-75 print good
+  or average is 45-65 print pass
+  or average is below 45 print fail
+6.end
+
+PSEUDOCODE:
+1.start
+2.declare int mark1,mark2,mark3,mark4,mark5
+3.declare int average 
+4.average=(mark1+mark2+mark3+mark4+mark5)/5
+5.if average is>=75 and average<=90 then 
+  print excellent 
+  else if average>=60 and average<75 then 
+  print good 
+  else if average >=45 and average<60 then 
+  print pass
+  else average<45 then 
+  print fail
+6.end if

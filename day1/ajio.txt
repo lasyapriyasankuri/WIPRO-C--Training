@@ -1,0 +1,14 @@
+1.browse www.ajio.com
+2.menus 
+3.select the niche you want to shop on for example women ,kids,men etc
+4.it will redirect to log into the account page
+5.enter your credentials which are user name and password if you have an account
+6.if you are a new user click signin option.
+7.after completing the login click proceed
+8.search for the item to your liking click add to cart
+9.check the item your buying like size and ratings
+10.click continue and give the delivery address
+11.which will redirect to payment options
+12.choose the mode of payment like upi or cash on delivey, etc
+13.after clicking continue your order will be placed
+14.check your delivery date and wait for the order to process.
