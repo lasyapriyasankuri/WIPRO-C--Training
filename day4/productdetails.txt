@@ -1,0 +1,23 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        const int productCount = 5;
+        decimal totalAmount = 0;
+
+        for (int i = 0; i < productCount; i++)
+        {
+            Console.Write($"Enter price for product {i + 1}: ");
+            decimal price = decimal.Parse(Console.ReadLine());
+
+            Console.Write($"Enter quantity for product {i + 1}: ");
+            int quantity = int.Parse(Console.ReadLine());
+
+            totalAmount += price * quantity;
+        }
+
+        Console.WriteLine($"The total amount for all products is: {totalAmount:C}");
+    }
+}
