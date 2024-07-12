@@ -1,0 +1,43 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Enter Employee ID:");
+        int empId = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter Employee Name:");
+        string empName = Console.ReadLine();
+
+        Console.WriteLine("Enter Basic Salary:");
+        double basicSalary = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Is the employee a contract employee? (true/false):");
+        bool isContractEmployee = bool.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter Department Number:");
+        int deptNo = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter Email ID:");
+        string emailId = Console.ReadLine();
+
+        double hra = 0.15 * basicSalary;
+        double ma = 0.10 * basicSalary;
+        double ta = 0.15 * basicSalary;
+
+        double netSalary = basicSalary + hra + ma + ta;
+        Console.WriteLine("\nEmployee Details:");
+        Console.WriteLine("Employee ID: " + empId);
+        Console.WriteLine("Employee Name: " + empName);
+        Console.WriteLine("Basic Salary: " + basicSalary);
+        Console.WriteLine("HRA: " + hra);
+        Console.WriteLine("MA: " + ma);
+        Console.WriteLine("TA: " + ta);
+        Console.WriteLine("Net Salary: " + netSalary);
+        Console.WriteLine("Is Contract Employee: " + isContractEmployee);
+        Console.WriteLine("Department Number: " + deptNo);
+        Console.WriteLine("Email ID: " + emailId);
+
+        Console.ReadLine();
+    }
+}
