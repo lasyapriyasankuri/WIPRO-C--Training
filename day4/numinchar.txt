@@ -1,0 +1,29 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter a number to convert to words:");
+        string input = Console.ReadLine();
+
+        string result = ConvertNumberToWords(input);
+        Console.WriteLine("Output: " + result);
+    }
+
+    static string ConvertNumberToWords(string number)
+    {
+        string[] words = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+        string result = "";
+
+        foreach (char digit in number)
+        {
+            int digitValue = digit - '0';
+
+            result += words[digitValue] + " ";
+        }
+
+        return result.Trim();
+    }
+}
