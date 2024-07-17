@@ -1,0 +1,67 @@
+using System;
+
+public class Program
+{
+    public static int CountWordsWithEqualNumberOfCharacters(string input)
+    {
+        if (string.IsNullOrEmpty(input))
+        {
+            return 0;
+        }
+        int wordCount = 0;
+        int[] wordLengths = new int[input.Length];
+        int currentWordLength = 0;
+        int index = 0;
+        for (int i = 0; i < input.Length; i++)
+        {
+            if (char.IsWhiteSpace(input[i]))
+            {
+                if (currentWordLength > 0)
+                {
+                    wordLengths[index++] = currentWordLength;
+                    currentWordLength = 0;
+                }
+            }
+            else
+            {
+                currentWordLength++;
+            }
+        }
+        
+        if (currentWordLength > 0)
+        {
+            wordLengths[index++] = currentWordLength;
+        }
+        for (int i = 0; i < index; i++)
+        {
+            int count = 0;
+            for (int j = 0; j < index; j++)
+            {
+                if (wordLengths[i] == wordLengths[j])
+                {
+                    count++;
+                }
+            }
+            if (count == index)
+            {
+                wordCount++;
+            }
+        }
+        return (wordCount - index) / 2;
+    }
+
+    public static void Main()
+    {
+        string input1 = "Hi  How are you";
+        int result1 = CountWordsWithEqualNumberOfCharacters(input1);
+        Console.WriteLine("Output: " + result1);
+        
+        string input2 = "You are best thing";
+        int result2 = CountWordsWithEqualNumberOfCharacters(input2);
+        Console.WriteLine("Output: " + result2);
+        
+        string input3 = "Practice makes man perfect";
+        int result3 = CountWordsWithEqualNumberOfCharacters(input3);
+        Console.WriteLine("Output: " + result3);
+    }
+}
