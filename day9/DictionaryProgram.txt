@@ -1,0 +1,66 @@
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
+
+namespace ConsoleApp2 {
+    class Program {
+        static Dictionary<string, List<String>> customerList;
+
+
+        static void ShowCustomersByPlan(string planName) {
+            if (customerList.ContainsKey(planName)) {
+                List<String> customerNames = customerList[planName];
+
+                Console.WriteLine("Customers in {0} plan : ", planName);
+                foreach (String customerName in customerNames) {
+                    Console.Write("  " + customerName);
+                }
+            }
+            else {
+                Console.WriteLine("You have ented wrong plan or plan does not exists");
+            }
+        }
+
+
+        static void AddCustomer(string planName, string customerName) {
+            if (planName == "Gold" || planName == "Silver" || planName == "Platinum") {
+                List<string> names = customerList[planName];
+                names.Add(customerName);
+                //customerList.Add(planName,names);
+            }
+        }
+
+
+        static void Main(string[] args) {
+            customerList = new Dictionary<string, List<String>>()
+            {
+                                    { "Gold", new List<string>(){ "Tom","Harry"} },
+                                    { "Silver",new List<string>(){ "Sam","Peter"} },
+                                    { "Paltinum",new List<string>(){ "Kim","Robert"} }
+            };
+
+            Console.WriteLine("Add New Customer");
+            Console.WriteLine("Enter the name : ");
+            string name = Console.ReadLine();
+            Console.WriteLine("Enter the plan : ");
+            string plan = Console.ReadLine();
+
+            AddCustomer(plan, name);
+
+
+
+
+            ShowCustomersByPlan(plan);
+
+            // Code to read plan and customer name from user
+            // Add to the customerList 
+
+
+            Console.ReadLine();
+        }
+    }
+}

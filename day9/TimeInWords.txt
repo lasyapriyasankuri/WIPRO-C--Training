@@ -1,0 +1,83 @@
+namespace ConvertToWords {
+    public class TimeInWords {
+        public static void TimeToWords(int hour, int minutes) {
+            string[] hourWords = { "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "ten", "Eleven", "Twelve", "one" };
+            string[] minuteWords = { "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteenn", "SevenTeen", "Eighteen","Nineteen","Twenty" };
+
+            string h = "", m = "", tense = "";
+
+            if (hour >= 12) {
+                hour = hour % 12;
+            }
+
+            if (minutes % 15 == 0 && minutes != 0 && minutes < 60) {
+                if (minutes == 15) {
+                    m = "Quater";
+                    tense = "past";
+                    h = hourWords[hour - 1];
+                }
+                else if (minutes == 30) {
+                    m = "Half";
+                    tense = "past";
+                    h = hourWords[hour - 1];
+                }
+                else if (minutes == 45) {
+                    m = "Quater";
+                    tense = "to";
+                    h = hourWords[hour];
+                }
+            }
+
+            else if (minutes == 0) {
+                Console.WriteLine(hourWords[hour - 1] + " O' Clock");
+                return;
+            }
+            else if(minutes == 60) {
+                Console.WriteLine(hourWords[hour] + " O' Clock");
+                return;
+            }
+
+            else if (minutes < 20 && minutes > 0) {
+                m = minuteWords[minutes - 1];
+                tense = "past";
+                h = hourWords[hour-1];
+            }
+            else {
+                if (minutes < 30) {
+                    int rem = minutes % 10;
+                    if (rem == 0) {
+                        m = "Twenty";
+                    }
+                    else {
+                        m = "Twenty" + " " + minuteWords[rem - 1];
+                    }
+                    tense = "past";
+                    h = hourWords[hour - 1];
+                }
+                else {
+                    minutes = 60 - minutes;
+                    if (minutes >= 20) {
+                        int rem = minutes % 10;
+                        m = "Twenty" + " " + minuteWords[rem - 1];
+                    }
+                    else {
+                        m = minuteWords[minutes - 1];
+                    }
+                    tense = "to";
+                    h = hourWords[hour];
+                }
+            }
+            Console.WriteLine(m + " minutes " + tense + " " + h);
+        }
+
+        public static void Main(string[] args) {
+            Console.WriteLine("Enter the time");
+            Console.Write("Enter Hour : ");
+            int hour = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter Minutes :");
+            int minutes = Convert.ToInt32(Console.ReadLine());
+            TimeToWords(hour, minutes);
+
+        }
+    }
+}
